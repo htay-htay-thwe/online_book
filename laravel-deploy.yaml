@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: laravel-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /mnt/data/laravel
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: laravel-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: manual
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-deployment
+  labels:
+    app: laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      imagePullSecrets:
+      - name: my-registry-key
+      containers:
+      - name: laravel-app
+        image: 911167927672.dkr.ecr.ap-southeast-1.amazonaws.com/laravel_app:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_CONNECTION
+          value: "mysql"
+        - name: DB_HOST
+          value: "mysql-service"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_DATABASE
+          value: "book_shop_one"
+        - name: DB_USERNAME
+          value: "root"
+        - name: DB_PASSWORD
+          value: "htayhtaythwe"
+        volumeMounts:
+        - name: laravel-data
+          mountPath: /var/www/html
+      volumes:
+        - name: laravel-data
+          persistentVolumeClaim:
+            claimName: laravel-pvc
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-service
+spec:
+  selector:
+    app: laravel
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 8000
+  type: ClusterIP

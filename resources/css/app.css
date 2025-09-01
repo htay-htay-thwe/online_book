@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'swiper/css/bundle';
+
+[x-cloak] {
+    display: none;
+}
