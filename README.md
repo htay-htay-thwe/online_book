@@ -1,9 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Certainly! Here's a polished and professional **README.md** tailored for your backend project, [online\_book](https://github.com/htay-htay-thwe/online_book). This version is designed to impress potential employers by highlighting your skills, project structure, and setup instructions in a clean and organized manner.
-
----
-
 # 📚 Online Book Management System
 
 A robust backend API built with **Laravel**, designed to manage and serve content for the Online Book platform. This project demonstrates proficiency in modern PHP development, API design, and database management.
