@@ -1,66 +1,145 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 📚 Online Book Management System
 
-## About Laravel
+A robust backend API built with **Laravel**, designed to manage and serve content for the Online Book platform. This project demonstrates proficiency in modern PHP development, API design, and database management.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🔐 Secure API endpoints for book management
+- 🗄️ Structured database schema for efficient data storage
+- 📦 Dockerized environment for consistent development setup
+- 🧪 PHPUnit-based testing suite for backend logic validation
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tech Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend Framework**: [Laravel](https://laravel.com/)
+- **Database**: MySQL
+- **Containerization**: Docker
+- **Testing**: PHPUnit
+- **Version Control**: Git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📂 Project Structure
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
 
-### Premium Partners
+online\_book/
+├── app/                  # Core application logic
+├── bootstrap/            # Application bootstrapping
+├── config/               # Configuration files
+├── database/             # Database migrations and seeds
+├── public/               # Publicly accessible files
+├── resources/            # Views and localization files
+├── routes/               # API and web routes
+├── storage/              # Logs and file storage
+├── tests/                # Automated tests
+├── .dockerignore         # Docker ignore file
+├── .editorconfig         # Editor configuration
+├── .env.example          # Environment variables example
+├── .gitignore            # Git ignore file
+├── Dockerfile            # Docker configuration
+├── README.md             # Project documentation
+├── artisan               # Laravel command-line tool
+├── composer.json         # PHP dependencies
+├── composer.lock         # PHP dependency lock file
+├── package-lock.json     # Node.js dependency lock file
+└── vite.config.js        # Vite configuration for frontend assets
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+````
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Installation & Setup
 
-## Code of Conduct
+### Clone the repository
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone https://github.com/htay-htay-thwe/online_book.git
+cd online_book
+````
 
-## Security Vulnerabilities
+### Copy and configure environment variables
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+```
 
-## License
+Update the `.env` file with your database credentials and other environment-specific settings.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Build and start the Docker containers
+
+```bash
+docker-compose up -d
+```
+
+This command builds the Docker images and starts the containers in detached mode.
+
+### Install PHP dependencies
+
+```bash
+docker-compose exec app composer install
+```
+
+### Generate the application key
+
+```bash
+docker-compose exec app php artisan key:generate
+```
+
+### Run database migrations
+
+```bash
+docker-compose exec app php artisan migrate
+```
+
+### Seed the database with sample data
+
+```bash
+docker-compose exec app php artisan db:seed
+```
+
+### Access the application
+
+The backend API should now be accessible at `http://localhost:8000`.
+
+---
+
+## 🧪 Running Tests
+
+To run the test suite:
+
+```bash
+docker-compose exec app php artisan test
+```
+
+This will execute the PHPUnit tests to ensure the integrity of your application.
+
+---
+
+## 📬 Contact
+
+👤 **Your Name**
+📧 Email: htayhtaythwe962@gmail.com
+
+---
+
+⭐ If you find this project useful, please consider giving it a **star**!
+
+```
+
+---
+
+### 📌 Notes
+
+This backend project is designed to work seamlessly with the [Online Book Frontend](https://github.com/htay-htay-thwe/online_book_frontend), providing a full-stack solution for book management. The use of Docker ensures a consistent development environment, making it easy to set up and collaborate on.
+
+If you have any questions or need further information, feel free to reach out via the contact details provided above.
+ 
+```
+

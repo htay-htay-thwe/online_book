@@ -1,27 +1,38 @@
 FROM php:8.2-fpm
 
-WORKDIR /var/www/html
-
-# Install dependencies
-RUN apt-get update && apt-get install -y git unzip curl libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
+# Install PHP system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    zip unzip \
+    git \
+    libzip-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    && docker-php-ext-install pdo_mysql zip
 
 # Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-COPY composer.json composer.lock ./
+# Set working directory
+WORKDIR /var/www/html
 
-# Install Composer dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Copy application files
+# Copy app files
 COPY . .
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 /var/www/html/storage \
-    && chmod -R 775 /var/www/html/bootstrap/cache
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
 
-EXPOSE 9000
+# Install npm dependencies and build assets
+RUN npm install && npm run build
 
-CMD ["php-fpm"]
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Fix permissions
+RUN chown -R www-data:www-data storage bootstrap/cache public/build
+RUN chmod -R 775 storage bootstrap/cache public/build
+
+EXPOSE 8000
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
