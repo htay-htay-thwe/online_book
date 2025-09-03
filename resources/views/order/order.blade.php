@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div>
+    <div class="page-content">
         <div class="shadow-sm">
             <h2 class="mb-2 text-center">Order List</h2>
             {{-- <select id="orderStatus" name="status" type='text' class="p-2 form-select col-2"

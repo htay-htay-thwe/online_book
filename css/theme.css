@@ -246,7 +246,6 @@ section {
 .section__content {
     position: relative;
     margin: 0 auto;
-    z-index: 1;
 }
 
 .section__content--w1830 {
@@ -517,7 +516,6 @@ section {
     transition: all 0.3s ease;
     bottom: -22.5px;
     right: 45px;
-    z-index: 3;
 }
 
 .au-btn-plus i {
@@ -582,7 +580,6 @@ section {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 99999;
 }
 
 .page-loader__spin {
@@ -602,7 +599,6 @@ section {
     -moz-animation: spinner 1000ms infinite linear;
     -o-animation: spinner 1000ms infinite linear;
     animation: spinner 1000ms infinite linear;
-    z-index: 100000;
 }
 
 @-webkit-keyframes spinner {
@@ -1199,7 +1195,6 @@ section {
     right: 0;
     left: 0px;
     height: 75px;
-    z-index: 3;
 }
 
 .header-desktop .section__content {
@@ -1475,7 +1470,6 @@ section {
     -ms-transform-origin: right top;
     -o-transform-origin: right top;
     transform-origin: right top;
-    z-index: 3;
 }
 
 .account-dropdown .info {
@@ -1613,7 +1607,6 @@ section {
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #e5e5e5;
     position: relative;
-    z-index: 3;
 }
 
 .menu-sidebar .navbar__list .navbar__sub-list {
@@ -1743,7 +1736,6 @@ section {
     position: absolute;
     width: 100%;
     top: 88px;
-    z-index: 20;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list {
@@ -1870,7 +1862,6 @@ section {
 
 .mess-dropdown, .email-dropdown, .notifi-dropdown, .setting-dropdown {
     position: absolute;
-    z-index: 9999;
     min-width: 340px;
     background: #fff;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -1907,7 +1898,6 @@ section {
     position: absolute;
     top: -17px;
     left: 55px;
-    z-index: 3;
 }
 
 .mess__title, .email__title, .notifi__title {
@@ -2134,7 +2124,6 @@ section {
     -o-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    z-index: 1000;
 }
 
 .menu-sidebar2 .logo {
@@ -2310,7 +2299,6 @@ section {
     height: 75px;
     background: #4272d7;
     position: fixed;
-    z-index: 1001;
     top: 0;
     right: 0;
     left: 300px;
@@ -2497,7 +2485,6 @@ section {
     -o-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    z-index: 5;
 }
 
 .search-dropdown::before {
@@ -2600,7 +2587,6 @@ section {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 999;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -2666,7 +2652,6 @@ section {
     -ms-flex-align: center;
     align-items: center;
     position: relative;
-    z-index: 3;
 }
 
 .header__navbar ul {
@@ -2782,7 +2767,6 @@ section {
     -webkit-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
     opacity: 0;
     -webkit-transform: scaleY(0);
     -moz-transform: scaleY(0);
@@ -2954,7 +2938,6 @@ section {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 999;
     background: #fff;
 }
 
@@ -3364,7 +3347,6 @@ section {
 
 .au-card-title h3 {
     position: relative;
-    z-index: 2;
     color: #fff;
     font-weight: 400;
 }
@@ -4766,7 +4748,6 @@ section {
     height: 75px;
     background: #fff;
     position: relative;
-    z-index: 0;
 }
 
 @media (max-width: 991px) {
@@ -14585,7 +14566,6 @@ section {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 0;
 }
 
 .bg-overlay--blue {
@@ -14697,7 +14677,6 @@ section {
     display: flex;
     justify-content: end;
     margin-bottom: -40px;
-    z-index: 10;
   }
   .iconDelete div{
     margin:auto auto;

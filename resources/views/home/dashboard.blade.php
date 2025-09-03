@@ -55,7 +55,7 @@
                         <i class="fas fa-bars"></i>
                     </div>
 
-                    <div class=" header-wrap" style="z-index:-10px">
+                    <div class=" header-wrap" style="z-index:0">
 
                         <form class="z-10 ml-5 form-header" action="{{ route('search') }}" method="POST">
                             @csrf
