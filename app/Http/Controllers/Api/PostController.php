@@ -68,9 +68,9 @@ class PostController extends Controller
             $file      = $request->file('profile_image');
             $imageName = time() . '_' . $file->getClientOriginalName();
             // $path = $file->storeAs('public', $imageName);
-            $path = $request->file('bookImage')->move(public_path('books'), $imageName);
-            // $storagePath = str_replace('public/', '', $path);
-            $data['image'] = $path;
+            $path          = $file->move(public_path('books'), $imageName);
+            $storagePath   = str_replace('C:\\xampp\\htdocs\\book_shop_one\\public\\books\\', '', $path);
+            $data['image'] = $storagePath;
         }
         $updateUserData = User::where('id', $id)->update($data);
         $getUserData    = User::where('id', $id)->first();

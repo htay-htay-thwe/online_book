@@ -30,10 +30,11 @@ class CommentController extends Controller
             $file      = $request->file('comment_image');
             $imageName = time() . '_' . $file->getClientOriginalName();
             // $path = $file->storeAs('public', $imageName);
-            $path = $request->file('bookImage')->move(public_path('books'), $imageName);
+            $path = $file->move(public_path('books'), $imageName);
 
-            // $storagePath            = str_replace('public/', '', $path);
-            $comment->comment_image = $path;
+            $storagePath = str_replace('C:\\xampp\\htdocs\\book_shop_one\\public\\books\\', '', $path);
+
+            $comment->comment_image = $storagePath;
 
         } else {
             logger('error');
