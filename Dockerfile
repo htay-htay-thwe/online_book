@@ -39,6 +39,10 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data storage bootstrap/cache public/build
 RUN chmod -R 775 storage bootstrap/cache public/build
 
+RUN chmod -R 775 storage
+RUN chown -R www-data:www-data storage
+
+
 # Create a symbolic link for storage
 RUN ln -s /var/www/html/storage/app/public /var/www/html/public/storage
 
