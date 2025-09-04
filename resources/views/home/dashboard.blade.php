@@ -110,8 +110,9 @@
                             <div class="account-wrap">
                                 <div class="clearfix account-item js-item-menu">
                                     <div class="image">
-                                        <img src="{{ asset('storage/' . Auth::user()->image) }}"
+                                        <img src="{{ Auth::user()->image ? asset('books/' . Auth::user()->image) : asset('images/default.png') }}"
                                             alt="{{ Auth::user()->name }}" />
+
                                     </div>
                                     <div class=" content" style="color: white;">
                                         <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
@@ -120,8 +121,9 @@
                                         <div class="clearfix info">
                                             <div class="image">
                                                 <a href="#">
-                                                    <img src="{{ asset('storage/' . Auth::user()->image) }}"
-                                                        alt="John Doe" />
+                                                    <img src="{{ Auth::user()->image ? asset('books/' . Auth::user()->image) : asset('images/default.png') }}"
+                                                        alt="{{ Auth::user()->name }}" />
+
                                                 </a>
                                             </div>
                                             <div class="content">
@@ -245,7 +247,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
 
     <!-- Your Local Main JS -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
 </body>
 
 </html>

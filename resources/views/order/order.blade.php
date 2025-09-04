@@ -37,7 +37,7 @@
                                 <input type="hidden" class="orderId" value="{{ $data->order_id }}" name="id" />
                                 <th scope="row">{{ $index + 1 }}</th>
                                 <td name="order_id">{{ $data->orderId }}</td>
-                                <td name="bookImage"><img src="{{ asset('storage/' . $data->bookImage) }}" alt=""
+                                <td name="bookImage"><img src="{{ asset('books/' . $data->bookImage) }}" alt=""
                                         class="card-img w-25" /> {{ $data->bookName }}</td>
                                 <td name="address">Address</td>
                                 <td>{{ $data->created_at }}</td>
@@ -79,7 +79,7 @@
                     dataType: 'json',
                     'success': function(response) {
                         console.log(response);
-                        var assetPath = '/storage/';
+                        var assetPath = '/books/';
                         $list = '';
                         for ($i = 0; $i < response.length; $i++) {
                             $months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July',

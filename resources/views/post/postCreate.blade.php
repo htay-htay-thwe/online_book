@@ -88,7 +88,7 @@
                                         <span class="overlay"></span>
 
                                         <div class="card-image">
-                                            <img src="{{ asset('storage/' . $data->bookImage) }}" alt=""
+                                            <img src="{{ asset('books/' . $data->bookImage) }}" alt=""
                                                 class="card-img" />
                                         </div>
                                     </div>
