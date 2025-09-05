@@ -10,11 +10,10 @@ class CommentController extends Controller
     public function comment(Request $request)
     {
         $request->validate([
-            'comment_image' => 'nullable', // Adjust the validation rule as needed
-            'comment'       => 'required|string',
-            'book_id'       => 'required|integer',
-            'user_id'       => 'required|integer',
-            'user_name'     => 'required|string',
+            'comment'   => 'required|string',
+            'book_id'   => 'required|integer',
+            'user_id'   => 'required|integer',
+            'user_name' => 'required|string',
         ]);
 
         // Create a new Comment instance
@@ -37,7 +36,7 @@ class CommentController extends Controller
             $comment->comment_image = $storagePath;
 
         } else {
-            logger('error');
+            $comment->comment_image = null;
         }
 
         // Save the comment
@@ -49,6 +48,7 @@ class CommentController extends Controller
             'message'     => 'Comment saved successfully',
         ]);
     }
+
     public function getComment()
     {
         $commentData = Comment::get();
