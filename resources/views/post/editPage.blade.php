@@ -37,7 +37,7 @@
                                     aria-label="Default select example">
                                     <option>Choose Genre</option>
                                     @foreach ($genre as $gen)
-                                        <option value="{{ $gen->id }}"selected>{{ $gen->genre }}</option>
+                                        <option value="{{ $gen->genre }}"selected>{{ $gen->genre }}</option>
                                     @endforeach
                                 </select>
                             </div>
