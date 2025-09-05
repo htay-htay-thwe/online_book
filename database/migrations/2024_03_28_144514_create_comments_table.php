@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('comment_image');
+            $table->string('comment_image')->nullable();
             $table->string('user_id');
             $table->string('book_id');
             $table->longText('comment');
