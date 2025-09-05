@@ -10,7 +10,7 @@ class CommentController extends Controller
     public function comment(Request $request)
     {
         $request->validate([
-            'comment_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rule as needed
+            'comment_image' => 'nullable', // Adjust the validation rule as needed
             'comment'       => 'required|string',
             'book_id'       => 'required|integer',
             'user_id'       => 'required|integer',
