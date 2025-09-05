@@ -35,8 +35,8 @@ class UserController extends Controller
             // if($dbImage != null){
             //     Storage::delete('public/'.$dbImage->image);
             // }
-            if ($dbImage && $dbImage->bookImage) {
-                $oldImagePath = public_path('books/' . $dbImage->bookImage);
+            if ($dbImage && $dbImage->image) {
+                $oldImagePath = public_path('books/' . $dbImage->image);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath); // delete the old file
                 }
@@ -44,7 +44,7 @@ class UserController extends Controller
 
             $imageName = uniqid() . '_' . $request->file('image')->getClientOriginalName();
             // $request->file('image')->storeAs('public',$imageName);
-            $request->file('bookImage')->move(public_path('books'), $imageName);
+            $request->file('image')->move(public_path('books'), $imageName);
             $data['image'] = $imageName;
         }
         User::where('id', Auth::user()->id)->update($data);
