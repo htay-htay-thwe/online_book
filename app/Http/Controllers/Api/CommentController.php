@@ -32,7 +32,7 @@ class CommentController extends Controller
             // $path = $file->storeAs('public', $imageName);
             $path = $file->move(public_path('books'), $imageName);
 
-            $storagePath = str_replace('C:\\xampp\\htdocs\\book_shop_one\\public\\books\\', '', $path);
+            $storagePath = str_replace('/var/www/html/public/books/', '', $path);
 
             $comment->comment_image = $storagePath;
 
